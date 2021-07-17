@@ -1,19 +1,8 @@
 import React from "react";
 
 export class TodoFilter extends React.Component {
-    constructor(props) {
-        super(props);
-        // selectedOption should probably be lifted to todo component, so this component only takes input
-        this.state = {
-            selectedOption: "all",
-        };
-    }
-
     handleOptionChange = (event) => {
-        console.log(event);
-        this.setState({
-            selectedOption: event.target.value,
-        });
+        this.props.switchFiltering(event.target.value);
     };
 
     render() {
@@ -26,7 +15,6 @@ export class TodoFilter extends React.Component {
                         name="filter"
                         value="all"
                         id="all"
-                        checked={this.state.selectedOption === "all"}
                         onChange={this.handleOptionChange}
                     />
                     <label htmlFor="all">all</label>
@@ -36,7 +24,6 @@ export class TodoFilter extends React.Component {
                         name="filter"
                         value="active"
                         id="active"
-                        checked={this.state.selectedOption === "active"}
                         onChange={this.handleOptionChange}
                     />
                     <label htmlFor="active">active</label>
@@ -46,7 +33,6 @@ export class TodoFilter extends React.Component {
                         name="filter"
                         value="completed"
                         id="completed"
-                        checked={this.state.selectedOption === "completed"}
                         onChange={this.handleOptionChange}
                     />
                     <label htmlFor="completed">completed</label>

@@ -21,6 +21,7 @@ export class TodoForm extends React.Component {
             id: shortid.generate(),
             text: this.state.todoText,
             complete: false,
+            visible: true,
         });
     };
 

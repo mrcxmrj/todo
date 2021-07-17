@@ -10,17 +10,19 @@ export class TodoList extends React.Component {
     };
 
     render() {
-        const listTodos = this.props.todos.map((todo) => (
-            <li key={todo.id}>
-                <button value={todo.id} onClick={this.handleCompletion}>
-                    {todo.complete ? "X" : "O"}
-                </button>
-                {todo.text}
-                <button value={todo.id} onClick={this.handleRemove}>
-                    remove
-                </button>
-            </li>
-        ));
+        const listTodos = this.props.todos.map((todo) =>
+            todo.visible ? (
+                <li key={todo.id}>
+                    <button value={todo.id} onClick={this.handleCompletion}>
+                        {todo.complete ? "X" : "O"}
+                    </button>
+                    {todo.text}
+                    <button value={todo.id} onClick={this.handleRemove}>
+                        remove
+                    </button>
+                </li>
+            ) : null
+        );
 
         return <ul>{listTodos}</ul>;
     }

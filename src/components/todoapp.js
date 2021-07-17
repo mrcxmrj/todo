@@ -40,6 +40,31 @@ export class TodoApp extends React.Component {
         this.setState({ todos: updatedTodos });
     };
 
+    switchFiltering = (option) => {
+        let updatedTodos = [...this.state.todos];
+        switch (option) {
+            case "all":
+                updatedTodos.forEach((todo) => {
+                    todo.visible = true;
+                });
+                break;
+            case "active":
+                updatedTodos.forEach((todo) => {
+                    todo.visible = !todo.complete;
+                });
+                break;
+            case "completed":
+                updatedTodos.forEach((todo) => {
+                    todo.visible = todo.complete;
+                });
+                break;
+            default:
+                console.error("switch option is invalid");
+        }
+
+        this.setState({ todos: updatedTodos });
+    };
+
     render() {
         return (
             <div className="container">
@@ -51,7 +76,10 @@ export class TodoApp extends React.Component {
                     switchCompletion={this.switchCompletion}
                 />
                 <div style={{ borderTop: "0.15em dotted black" }}></div>
-                <TodoFilter removeCompleted={this.removeCompleted} />
+                <TodoFilter
+                    removeCompleted={this.removeCompleted}
+                    switchFiltering={this.switchFiltering}
+                />
             </div>
         );
     }
