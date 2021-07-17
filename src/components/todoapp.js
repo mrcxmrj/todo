@@ -1,0 +1,58 @@
+import React from "react";
+import { TodoForm } from "./todoform";
+import { TodoList } from "./todolist";
+import "./todoapp.css";
+import { TodoFilter } from "./todofilter";
+
+export class TodoApp extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            todos: [],
+        };
+    }
+
+    addTodo = (todo) => {
+        this.setState({
+            todos: [todo, ...this.state.todos],
+        });
+    };
+
+    removeTodo = (todoId) => {
+        let updatedTodos = [...this.state.todos];
+        let foundItem = updatedTodos.find((item) => item.id === todoId);
+        let index = updatedTodos.indexOf(foundItem);
+        updatedTodos.splice(index, 1);
+        this.setState({ todos: updatedTodos });
+    };
+
+    switchCompletion = (todoId) => {
+        let updatedTodos = [...this.state.todos];
+        let foundItem = updatedTodos.find((item) => item.id === todoId);
+        foundItem.complete = !foundItem.complete;
+        this.setState({ todos: updatedTodos });
+    };
+
+    removeCompleted = () => {
+        let updatedTodos = [...this.state.todos];
+        updatedTodos = updatedTodos.filter((todo) => todo.complete === false);
+        this.setState({ todos: updatedTodos });
+    };
+
+    render() {
+        return (
+            <div className="container">
+                <h1>todo list</h1>
+                <TodoForm onSubmit={this.addTodo} />
+                <TodoList
+                    todos={this.state.todos}
+                    remove={this.removeTodo}
+                    switchCompletion={this.switchCompletion}
+                />
+                <div style={{ borderTop: "0.15em dotted black" }}></div>
+                <TodoFilter removeCompleted={this.removeCompleted} />
+            </div>
+        );
+    }
+}
