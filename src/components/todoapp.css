@@ -1,12 +1,97 @@
+* {
+    box-sizing: inherit;
+}
+
+:root {
+    box-sizing: border-box;
+    --primary-color: #000;
+    --secondary-color: #cfcfcf;
+    --background-color: #fff;
+    --font-family-name: "Handlee";
+    --font-generic-family: cursive;
+}
+
+body {
+    font-family: var(--font-family-name), var(--font-generic-family);
+}
+
 .container {
-    width: 50%;
+    width: 100%;
+    max-width: 700px;
     margin: auto;
-    border: 0.15rem dotted black;
-    border-radius: 1em;
-    margin-top: 1em;
-    padding: 1em;
 }
 
 h1 {
-    margin: 0 0 0.5em 0;
+    margin: 5vh 0 0 0;
+    font-size: 4rem;
+    font-weight: 400; /* normal */
+}
+
+hr {
+    border: none;
+    border-top: 0.2rem solid var(--primary-color);
+    margin: 0; /* should be 1 rem */
+}
+.first-line {
+    margin-bottom: 1rem;
+}
+.last-line {
+    margin-top: 1rem;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.list-element {
+    width: 100%;
+    max-width: 650px;
+    min-height: 4.375rem;
+    margin: auto;
+    border-radius: 1rem;
+    font-size: 2rem;
+    padding: 0.625rem;
+}
+
+.todo-element:hover {
+    border: 2px dotted var(--secondary-color);
+}
+
+.two-column {
+    display: flex;
+    justify-content: space-between;
+}
+
+.border-light {
+    border: 2px solid var(--secondary-color);
+}
+
+.text-input {
+    width: 100%;
+    border: none;
+    font-size: 2rem;
+    font-family: var(--font-family-name), var(--font-generic-family);
+}
+
+.text-input:focus {
+    outline: none;
+}
+
+button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+.right-button {
+    display: flex;
+    align-items: center;
+    opacity: 50%;
+    padding: 0 0.5rem 0 0.5rem;
 }

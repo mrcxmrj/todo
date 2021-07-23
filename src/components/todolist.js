@@ -6,19 +6,32 @@ export class TodoList extends React.Component {
     };
 
     handleCompletion = (event) => {
-        this.props.switchCompletion(event.target.value);
+        this.props.switchCompletion(event.currentTarget.value);
     };
 
     render() {
         const listTodos = this.props.todos.map((todo) =>
             todo.visible ? (
-                <li key={todo.id}>
-                    <button value={todo.id} onClick={this.handleCompletion}>
-                        {todo.complete ? "X" : "O"}
-                    </button>
-                    {todo.text}
-                    <button value={todo.id} onClick={this.handleRemove}>
-                        remove
+                <li
+                    key={todo.id}
+                    className="list-element todo-element two-column"
+                >
+                    <div className="todo-content">
+                        <button value={todo.id} onClick={this.handleCompletion}>
+                            {todo.complete ? (
+                                <i className="far fa-check-square"></i>
+                            ) : (
+                                <i className="far fa-square"></i>
+                            )}
+                        </button>
+                        {todo.text}
+                    </div>
+                    <button
+                        value={todo.id}
+                        onClick={this.handleRemove}
+                        className="right-button"
+                    >
+                        <i className="fas fa-times"></i>
                     </button>
                 </li>
             ) : null

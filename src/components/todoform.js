@@ -27,16 +27,22 @@ export class TodoForm extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <input
-                    type="text"
-                    name="todoText"
-                    value={this.state.todoText}
-                    placeholder="what do you need to do?"
-                    onChange={this.handleChange}
-                />
-                <button type="submit">add</button>
-            </form>
+            <div className="list-element border-light">
+                <form onSubmit={this.handleSubmit} className="two-column">
+                    <input
+                        type="text"
+                        name="todoText"
+                        value={this.state.todoText}
+                        placeholder="what do you need to do?"
+                        onChange={this.handleChange}
+                        className="text-input"
+                        autoComplete="off"
+                    />
+                    <button type="submit" className="right-button">
+                        <i className="fas fa-plus"></i>
+                    </button>
+                </form>
+            </div>
         );
     }
 }

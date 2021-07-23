@@ -68,14 +68,15 @@ export class TodoApp extends React.Component {
     render() {
         return (
             <div className="container">
-                <h1>todo list</h1>
+                <h1>Todo list</h1>
+                <hr className="first-line" />
                 <TodoForm onSubmit={this.addTodo} />
                 <TodoList
                     todos={this.state.todos}
                     remove={this.removeTodo}
                     switchCompletion={this.switchCompletion}
                 />
-                <div style={{ borderTop: "0.15em dotted black" }}></div>
+                <hr className="last-line" />
                 <TodoFilter
                     removeCompleted={this.removeCompleted}
                     switchFiltering={this.switchFiltering}
