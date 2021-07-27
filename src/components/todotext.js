@@ -1,9 +1,6 @@
 import React, { useMemo, useState } from "react";
 
 export const TodoText = (props) => {
-    const lineWidth = 30;
-    const [isShortened, toggleLength] = useState(props.text.length > lineWidth);
-
     // calculates text width in lowercase-letter width using following approximations:
     // lowercase-letter = 1/37 line; uppercase-letter = 1/26 line
     // therefore uppercase-letter = 37/26 lowercase-letter; which is approximately k=1.42
@@ -20,6 +17,9 @@ export const TodoText = (props) => {
     // calculates text width only on value change
     // currently no editing is available, so should only calculate on todo creation
     const textWidth = useMemo(() => calculateWidth(props.text), [props.text]);
+
+    const lineWidth = 30;
+    const [isShortened, toggleLength] = useState(props.text.length > lineWidth);
 
     const handleClick = () => {
         if (textWidth > lineWidth) {

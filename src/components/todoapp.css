@@ -58,8 +58,6 @@ ul {
 .list-element {
     width: 100%;
     max-width: 40.625rem;
-    /*     min-height: 4.375rem;
- */
     margin: auto;
     border-radius: 1rem;
     font-size: 2rem;
@@ -67,8 +65,12 @@ ul {
     border: 0.125rem solid rgba(0, 0, 0, 0%); /* invisible border fixing hover problems */
 }
 
+.hide {
+    display: none;
+}
+
 .list-element:hover .hide {
-    visibility: visible;
+    display: block;
     text-decoration: line-through;
 }
 
@@ -80,7 +82,7 @@ ul {
 .todo-text {
     max-width: 34rem;
     margin: 0 0.5rem 0 0.5rem;
-    overflow-wrap: break-word;
+    word-break: break-all;
 }
 
 .todo-completed {
@@ -133,10 +135,6 @@ button {
 .icon {
     padding: 0 0.5rem 0 0.5rem;
     opacity: 50%;
-}
-
-.hide {
-    visibility: hidden;
 }
 
 .footer {
