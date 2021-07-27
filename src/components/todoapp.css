@@ -32,10 +32,10 @@ hr {
     border-top: 0.2rem solid var(--primary-color);
     margin: 0; /* should be 1 rem */
 }
-.first-line {
+hr:first-of-type {
     margin-bottom: 1rem;
 }
-.last-line {
+hr:last-of-type {
     margin-top: 1rem;
 }
 
@@ -53,6 +53,24 @@ ul {
     border-radius: 1rem;
     font-size: 2rem;
     padding: 0.625rem;
+    border: 2px solid rgba(0, 0, 0, 0%); /* invisible border fixing hover problems */
+}
+
+.list-element:hover .hide {
+    visibility: visible;
+    text-decoration: line-through;
+}
+
+.todo-text {
+    margin: 0 0.5rem 0 0.5rem;
+}
+
+.todo-complete {
+    text-decoration: line-through;
+}
+
+.todo-element:first-of-type {
+    margin-top: 1rem;
 }
 
 .todo-element:hover {
@@ -89,9 +107,17 @@ button {
     outline: inherit;
 }
 
-.right-button {
+.icon {
+    padding: 0 0.5rem 0 0.5rem;
+    opacity: 50%;
+}
+
+.hide {
+    visibility: hidden;
+}
+
+.vertical-center {
     display: flex;
     align-items: center;
-    opacity: 50%;
-    padding: 0 0.5rem 0 0.5rem;
+    flex-wrap: wrap;
 }

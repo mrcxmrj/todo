@@ -37,9 +37,11 @@ export class TodoFilter extends React.Component {
                     />
                     <label htmlFor="completed">completed</label>
                 </div>
-                <button onClick={this.props.removeCompleted}>
-                    clear completed
-                </button>
+                {this.props.todos.length === 0 ? null : (
+                    <button onClick={this.props.removeCompleted}>
+                        clear completed
+                    </button>
+                )}
             </div>
         );
     }

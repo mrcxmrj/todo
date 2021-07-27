@@ -38,7 +38,7 @@ export class TodoForm extends React.Component {
                         className="text-input"
                         autoComplete="off"
                     />
-                    <button type="submit" className="right-button">
+                    <button type="submit" className="icon vertical-center">
                         <i className="fas fa-plus"></i>
                     </button>
                 </form>

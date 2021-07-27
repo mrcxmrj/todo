@@ -69,17 +69,18 @@ export class TodoApp extends React.Component {
         return (
             <div className="container">
                 <h1>Todo list</h1>
-                <hr className="first-line" />
+                <hr />
                 <TodoForm onSubmit={this.addTodo} />
                 <TodoList
                     todos={this.state.todos}
                     remove={this.removeTodo}
                     switchCompletion={this.switchCompletion}
                 />
-                <hr className="last-line" />
+                <hr />
                 <TodoFilter
                     removeCompleted={this.removeCompleted}
                     switchFiltering={this.switchFiltering}
+                    todos={this.state.todos}
                 />
             </div>
         );
