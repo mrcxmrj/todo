@@ -23,10 +23,7 @@ export class TodoList extends React.Component {
     render() {
         const listTodos = this.props.todos.map((todo) =>
             todo.visible ? (
-                <li
-                    key={todo.id}
-                    className="list-element todo-element vertical-center"
-                >
+                <li key={todo.id} className="list-element todo-element">
                     <button value={todo.id} onClick={this.handleCompletion}>
                         {todo.completed ? (
                             <i className="far fa-check-square "></i>

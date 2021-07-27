@@ -46,6 +46,10 @@ ul {
 }
 
 .add-element {
+    margin-bottom: 1rem !important;
+}
+
+.add-element > *:first-child {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -88,7 +92,11 @@ ul {
     flex-wrap: nowrap;
 }
 
-.todo-element:first-of-type {
+.todo-element > *:last-child {
+    margin-left: auto;
+}
+
+.todo-element .todo-element:first-of-type {
     margin-top: 1rem;
 }
 

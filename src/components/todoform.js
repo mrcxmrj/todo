@@ -42,8 +42,8 @@ export class TodoForm extends React.Component {
 
     render() {
         return (
-            <div className="list-element border-light">
-                <form onSubmit={this.handleSubmit} className="add-element">
+            <div className="list-element add-element border-light">
+                <form onSubmit={this.handleSubmit} className="">
                     <input
                         type="text"
                         name="todoText"
