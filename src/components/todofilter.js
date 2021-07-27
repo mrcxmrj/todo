@@ -8,7 +8,6 @@ export class TodoFilter extends React.Component {
     render() {
         return (
             <div className="footer">
-                number of items left:
                 <div className="filter">
                     <input
                         type="radio"
@@ -18,7 +17,7 @@ export class TodoFilter extends React.Component {
                         onChange={this.handleOptionChange}
                     />
                     <label htmlFor="all">all</label>
-
+                    {" / "}
                     <input
                         type="radio"
                         name="filter"
@@ -27,7 +26,7 @@ export class TodoFilter extends React.Component {
                         onChange={this.handleOptionChange}
                     />
                     <label htmlFor="active">active</label>
-
+                    {" / "}
                     <input
                         type="radio"
                         name="filter"
@@ -37,7 +36,7 @@ export class TodoFilter extends React.Component {
                     />
                     <label htmlFor="completed">completed</label>
                 </div>
-                {this.props.todos.length === 0 ? null : (
+                {this.props.todosLength === 0 ? null : (
                     <button onClick={this.props.removeCompleted}>
                         clear completed
                     </button>

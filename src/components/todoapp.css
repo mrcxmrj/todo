@@ -121,3 +121,24 @@ button {
     align-items: center;
     flex-wrap: wrap;
 }
+
+.footer {
+    text-align: center;
+    padding: 0.5rem;
+}
+
+.filter {
+    font-size: 1.5rem;
+}
+
+.filter > label {
+    cursor: pointer;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"]:checked + label {
+    color: var(--secondary-color);
+}

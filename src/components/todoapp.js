@@ -80,7 +80,7 @@ export class TodoApp extends React.Component {
                 <TodoFilter
                     removeCompleted={this.removeCompleted}
                     switchFiltering={this.switchFiltering}
-                    todos={this.state.todos}
+                    todosLength={this.state.todos.length}
                 />
             </div>
         );
