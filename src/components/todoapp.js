@@ -35,13 +35,13 @@ export class TodoApp extends React.Component {
     switchCompletion = (todoId) => {
         let updatedTodos = [...this.state.todos];
         let foundItem = updatedTodos.find((item) => item.id === todoId);
-        foundItem.complete = !foundItem.complete;
+        foundItem.completed = !foundItem.completed;
         this.setState({ todos: updatedTodos });
     };
 
     removeCompleted = () => {
         let updatedTodos = [...this.state.todos];
-        updatedTodos = updatedTodos.filter((todo) => todo.complete === false);
+        updatedTodos = updatedTodos.filter((todo) => todo.completed === false);
         this.setState({ todos: updatedTodos });
     };
 
@@ -57,12 +57,12 @@ export class TodoApp extends React.Component {
                 break;
             case "active":
                 updatedTodos.forEach((todo) => {
-                    todo.visible = !todo.complete;
+                    todo.visible = !todo.completed;
                 });
                 break;
             case "completed":
                 updatedTodos.forEach((todo) => {
-                    todo.visible = todo.complete;
+                    todo.visible = todo.completed;
                 });
                 break;
             default:

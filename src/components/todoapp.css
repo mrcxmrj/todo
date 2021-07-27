@@ -45,6 +45,12 @@ ul {
     padding: 0;
 }
 
+.add-element {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .list-element {
     width: 100%;
     max-width: 40.625rem;
@@ -67,11 +73,19 @@ ul {
 }
 
 .todo-text {
+    max-width: 34rem;
     margin: 0 0.5rem 0 0.5rem;
+    overflow-wrap: break-word;
 }
 
-.todo-complete {
+.todo-completed {
     text-decoration: line-through;
+}
+
+.todo-element {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: nowrap;
 }
 
 .todo-element:first-of-type {
@@ -80,11 +94,6 @@ ul {
 
 .todo-element:hover {
     border: 2px dotted var(--secondary-color);
-}
-
-.two-column {
-    display: flex;
-    justify-content: space-between;
 }
 
 .border-light {
@@ -119,12 +128,6 @@ button {
 
 .hide {
     visibility: hidden;
-}
-
-.vertical-center {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
 }
 
 .footer {

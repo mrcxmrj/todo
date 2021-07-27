@@ -12,11 +12,11 @@ export class TodoList extends React.Component {
     // check whether any visible todos are completed - used to determine "clear completed" button visibility
     areAnyVisibleTodosCompleted = () => {
         return !this.props.todos.every((todo) => {
+            let invisibleOrNotCompleted = true;
             if (todo.visible) {
-                return !todo.complete;
-            } else {
-                return true;
+                invisibleOrNotCompleted = !todo.completed;
             }
+            return invisibleOrNotCompleted;
         });
     };
 
@@ -25,30 +25,29 @@ export class TodoList extends React.Component {
             todo.visible ? (
                 <li
                     key={todo.id}
-                    className="list-element todo-element two-column"
+                    className="list-element todo-element vertical-center"
                 >
-                    <div className="vertical-center">
-                        <button value={todo.id} onClick={this.handleCompletion}>
-                            {todo.complete ? (
-                                <i className="far fa-check-square "></i>
-                            ) : (
-                                <i className="far fa-square "></i>
-                            )}
-                        </button>
-                        <div
-                            className={`todo-text${
-                                todo.complete ? " todo-complete" : ""
-                            }`}
-                        >
-                            {todo.text}
-                        </div>
-                    </div>
+                    <button value={todo.id} onClick={this.handleCompletion}>
+                        {todo.completed ? (
+                            <i className="far fa-check-square "></i>
+                        ) : (
+                            <i className="far fa-square "></i>
+                        )}
+                    </button>
+                    <p
+                        className={`todo-text${
+                            todo.completed ? " todo-completed" : ""
+                        }`}
+                    >
+                        {todo.text}
+                    </p>
+
                     <button
                         value={todo.id}
                         onClick={this.handleRemove}
                         className="icon hide"
                     >
-                        <i className="fas fa-times vertical-center"></i>
+                        <i className="fas fa-times"></i>
                     </button>
                 </li>
             ) : null

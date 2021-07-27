@@ -16,19 +16,34 @@ export class TodoForm extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        this.props.onSubmit({
-            id: shortid.generate(),
-            text: this.state.todoText,
-            complete: false,
-            visible: true,
-        });
-        this.setState({ todoText: "" });
+        if (this.state.todoText) {
+            this.props.onSubmit({
+                id: shortid.generate(),
+                text: this.state.todoText,
+                completed: false,
+                visible: true,
+            });
+            this.setState({ todoText: "" });
+        }
+    };
+
+    formatText = (text) => {
+        const lineLength = 35;
+        let dividedText = [];
+        for (
+            let charIndex = 0;
+            charIndex < text.length;
+            charIndex += lineLength
+        ) {
+            dividedText.push(text.substr(charIndex, lineLength));
+        }
+        return dividedText.join("<br>");
     };
 
     render() {
         return (
             <div className="list-element border-light">
-                <form onSubmit={this.handleSubmit} className="two-column">
+                <form onSubmit={this.handleSubmit} className="add-element">
                     <input
                         type="text"
                         name="todoText"
