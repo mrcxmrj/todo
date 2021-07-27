@@ -1,4 +1,5 @@
 import React from "react";
+import { TodoText } from "./todotext";
 
 export class TodoList extends React.Component {
     handleRemove = (event) => {
@@ -31,14 +32,7 @@ export class TodoList extends React.Component {
                             <i className="far fa-square "></i>
                         )}
                     </button>
-                    <p
-                        className={`todo-text${
-                            todo.completed ? " todo-completed" : ""
-                        }`}
-                    >
-                        {todo.text}
-                    </p>
-
+                    <TodoText text={todo.text} completed={todo.completed} />
                     <button
                         value={todo.id}
                         onClick={this.handleRemove}

@@ -58,7 +58,8 @@ ul {
 .list-element {
     width: 100%;
     max-width: 40.625rem;
-    min-height: 4.375rem;
+    /*     min-height: 4.375rem;
+ */
     margin: auto;
     border-radius: 1rem;
     font-size: 2rem;
