@@ -9,6 +9,17 @@ export class TodoList extends React.Component {
         this.props.switchCompletion(event.currentTarget.value);
     };
 
+    // check whether any visible todos are completed - used to determine "clear completed" button visibility
+    areAnyVisibleTodosCompleted = () => {
+        return !this.props.todos.every((todo) => {
+            if (todo.visible) {
+                return !todo.complete;
+            } else {
+                return true;
+            }
+        });
+    };
+
     render() {
         const listTodos = this.props.todos.map((todo) =>
             todo.visible ? (
@@ -43,6 +54,19 @@ export class TodoList extends React.Component {
             ) : null
         );
 
-        return <ul>{listTodos}</ul>;
+        return (
+            <ul>
+                {listTodos}
+
+                {this.areAnyVisibleTodosCompleted() ? (
+                    <button
+                        className="clear-button"
+                        onClick={this.props.removeCompleted}
+                    >
+                        clear completed
+                    </button>
+                ) : null}
+            </ul>
+        );
     }
 }

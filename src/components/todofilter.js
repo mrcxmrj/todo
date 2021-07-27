@@ -15,6 +15,7 @@ export class TodoFilter extends React.Component {
                         value="all"
                         id="all"
                         onChange={this.handleOptionChange}
+                        defaultChecked
                     />
                     <label htmlFor="all">all</label>
                     {" / "}
@@ -36,11 +37,6 @@ export class TodoFilter extends React.Component {
                     />
                     <label htmlFor="completed">completed</label>
                 </div>
-                {this.props.todosLength === 0 ? null : (
-                    <button onClick={this.props.removeCompleted}>
-                        clear completed
-                    </button>
-                )}
             </div>
         );
     }

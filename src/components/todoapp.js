@@ -10,13 +10,18 @@ export class TodoApp extends React.Component {
 
         this.state = {
             todos: [],
+            currentFilter: "all",
         };
     }
 
+    // adds new todo and updates visible list based on the current filter
     addTodo = (todo) => {
-        this.setState({
-            todos: [todo, ...this.state.todos],
-        });
+        this.setState(
+            {
+                todos: [todo, ...this.state.todos],
+            },
+            () => this.switchFiltering(this.state.currentFilter)
+        );
     };
 
     removeTodo = (todoId) => {
@@ -40,8 +45,10 @@ export class TodoApp extends React.Component {
         this.setState({ todos: updatedTodos });
     };
 
+    // switches filtering to provided option
     switchFiltering = (option) => {
         let updatedTodos = [...this.state.todos];
+
         switch (option) {
             case "all":
                 updatedTodos.forEach((todo) => {
@@ -62,7 +69,7 @@ export class TodoApp extends React.Component {
                 console.error("switch option is invalid");
         }
 
-        this.setState({ todos: updatedTodos });
+        this.setState({ todos: updatedTodos, currentFilter: option });
     };
 
     render() {
@@ -75,13 +82,10 @@ export class TodoApp extends React.Component {
                     todos={this.state.todos}
                     remove={this.removeTodo}
                     switchCompletion={this.switchCompletion}
+                    removeCompleted={this.removeCompleted}
                 />
                 <hr />
-                <TodoFilter
-                    removeCompleted={this.removeCompleted}
-                    switchFiltering={this.switchFiltering}
-                    todosLength={this.state.todos.length}
-                />
+                <TodoFilter switchFiltering={this.switchFiltering} />
             </div>
         );
     }

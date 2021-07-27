@@ -17,7 +17,7 @@ body {
 
 .container {
     width: 100%;
-    max-width: 700px;
+    max-width: 43.75rem;
     margin: auto;
 }
 
@@ -47,18 +47,23 @@ ul {
 
 .list-element {
     width: 100%;
-    max-width: 650px;
+    max-width: 40.625rem;
     min-height: 4.375rem;
     margin: auto;
     border-radius: 1rem;
     font-size: 2rem;
     padding: 0.625rem;
-    border: 2px solid rgba(0, 0, 0, 0%); /* invisible border fixing hover problems */
+    border: 0.125rem solid rgba(0, 0, 0, 0%); /* invisible border fixing hover problems */
 }
 
 .list-element:hover .hide {
     visibility: visible;
     text-decoration: line-through;
+}
+
+.clear-button {
+    margin: 0.5rem 2.3125rem 0 2.3125rem;
+    font-size: 1.5rem;
 }
 
 .todo-text {
