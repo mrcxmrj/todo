@@ -11,8 +11,18 @@
     --font-generic-family: cursive;
 }
 
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-color: #fff;
+        --secondary-color: #7a7a7a;
+        --background-color: #333333;
+    }
+}
+
 body {
     font-family: var(--font-family-name), var(--font-generic-family);
+    background-color: var(--background-color);
+    color: var(--primary-color);
 }
 
 .container {
@@ -116,6 +126,8 @@ ul {
     border: none;
     font-size: 2rem;
     font-family: var(--font-family-name), var(--font-generic-family);
+    background-color: var(--background-color);
+    color: var(--primary-color);
 }
 
 .text-input:focus {
