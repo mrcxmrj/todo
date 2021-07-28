@@ -9,7 +9,7 @@ export class TodoApp extends React.Component {
         super(props);
 
         this.state = {
-            todos: [],
+            todos: this.getLocalStorage(),
             currentFilter: "all",
         };
     }
@@ -71,6 +71,22 @@ export class TodoApp extends React.Component {
 
         this.setState({ todos: updatedTodos, currentFilter: option });
     };
+
+    getLocalStorage() {
+        console.log("getting todos from localstorage");
+        let storedTodos = window.localStorage.getItem("todos");
+        console.log(storedTodos);
+        return storedTodos ? JSON.parse(storedTodos) : [];
+    }
+
+    updateLocalStorage() {
+        console.log("updating localstorage");
+        window.localStorage.setItem("todos", JSON.stringify(this.state.todos));
+    }
+
+    componentDidUpdate() {
+        this.updateLocalStorage();
+    }
 
     render() {
         return (

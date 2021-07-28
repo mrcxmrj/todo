@@ -6,11 +6,9 @@ export const TodoText = (props) => {
     // therefore uppercase-letter = 37/26 lowercase-letter; which is approximately k=1.42
     const k = 1.42;
     const calculateWidth = (text) => {
-        console.log("calculating ;l");
         let countUppercase = (text.match(/[A-Z]/g) || []).length;
         let countLowercase = text.length - countUppercase;
         let textWidth = Math.trunc(countUppercase * 1.42 + countLowercase);
-        //console.log(textWidth);
         return textWidth;
     };
 
